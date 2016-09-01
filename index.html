@@ -231,25 +231,61 @@
         </header>
 
         <div id="comments">
-          <h3>Comments</h3>
-          <ul>
-          </ul>
+          <!--<h3>Comments</h3>-->
 
           <form action="/comments/new" method="post">
             <fieldset>
               <input type="hidden" name="photo_id" value="1" />
-              <h4>Your Comment</h4>
+              <!--<h4>Your Comment</h4>-->
               <dl>
-                <dt><label for="name">Your Name</label></dt>
-                <dd><input type="text" name="name" id="name" /></dd>
-                <dt><label for="email">Email Address</label></dt>
-                <dd><input type="email" name="email" id="email" placeholder="you@example.com" /></dd>
-                <dt><label for="body">Comment</label></dt>
-                <dd><textarea rows="6" cols="40" name="body" id="body"></textarea></dd>
+                <!--<dt><label for="name">Your Name</label></dt>-->
+                <!--<dd><input type="text" name="name" id="name" /></dd>-->
+                <!--<dt><label for="email">Email Address</label></dt>-->
+                <!--<dd><input type="email" name="email" id="email" placeholder="you@example.com" /></dd>-->
+                <dt><label for="body" style="display:none;">Comment</label></dt>
+                <dd><textarea rows="2" cols="40" name="body" id="body" placeholder="yab here..."></textarea></dd>
               </dl>
               <input type="submit" value="Post Comment" class="button" />
             </fieldset>
           </form>
+          <ul>
+            <li>
+              <article>
+                <figure>
+                  <img src="lag5.jpg" />
+                </figure>
+                <header>
+                  <h1>Aweni</h1>
+                  <p><small><time>Posted 08 Nov 2016</time></small></p>
+                </header>
+                <p>Some stuff about this ain't soo right after all</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <figure>
+                  <img src="lag5.jpg" />
+                </figure>
+                <header>
+                  <h1>Aweni</h1>
+                  <p><small><time>Posted 08 Nov 2016</time></small></p>
+                </header>
+                <p>Some stuff about this ain't soo right after all</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <figure>
+                  <img src="lag5.jpg" />
+                </figure>
+                <header>
+                  <h1>Aweni</h1>
+                  <p><small><time>Posted 08 Nov 2016</time></small></p>
+                </header>
+                <p>Some stuff about this ain't soo right after all</p>
+              </article>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
