@@ -13,7 +13,7 @@
       height: 100%;
     }
     #summary {
-      height: auto;
+      min-height: 100%;
       padding: 100px 0 60px; /*to offset main since header and footer are fixed*/
       font-family: 'Roboto', sans-serif;
       /*background-color: green;*/
