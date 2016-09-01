@@ -236,15 +236,16 @@ h3 {
 
 #detail main {
   display: block !important;
-  background-color: white;
-  border-radius: 6px;
-  min-height: 250px;
-  margin-bottom: 20px;
   position: absolute;
   top: 60px!important;
   left: 50%;
   width: 640px;
+  min-height: 250px;
+  margin-bottom: 20px;
   margin-left: -320px;
+  padding:  20px 30px;
+  background-color: white;
+  border-radius: 6px;
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
@@ -332,11 +333,11 @@ a.favorite {
 }
 
 #slideshow a.prev {
-  left: 20px;
+  left: -90px;
 }
 
 #slideshow a.next {
-  right: 20px;
+  right: -90px;
   background-position: 100% 0;
 }
 
@@ -353,13 +354,16 @@ section header {
 }
 
 #comments form {
-      margin-bottom: 15px;
+      margin-bottom: 35px;
   /*overflow-y: scroll;*/
 }
 
 #comments form,
 #comments ul li {
-  border-radius: 10px;
+  list-style: none;
+  padding-top: 20px;
+  margin-top: 10px;
+  border-top: 1px solid #cecece;
   background-color: white;
 }
 
@@ -374,7 +378,6 @@ section header {
 }
 
 #comments li {
-  padding: 0 0 20px 0;
 }
 
 #comments article header {
@@ -393,9 +396,6 @@ section header {
 }
 
 #comments li + li {
-  padding-top: 20px;
-  margin-top: 10px;
-  border-top: 1px solid #cecece;
 }
 
 form h4 {
