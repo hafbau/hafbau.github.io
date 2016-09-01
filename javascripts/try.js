@@ -19,7 +19,9 @@ $(function() {
     
     $(".cards-container").on("click", ".card", function(e) {
       e.preventDefault();
-      
+      console.log(e);
+      console.log(e.target);
+      console.log($(e.target));
       $("#slides").html(e.target);
       $("#detail").show();
     })
