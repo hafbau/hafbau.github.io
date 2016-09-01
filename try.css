@@ -312,6 +312,7 @@ a.favorite {
 #slideshow ul {
   position: absolute;
   top:  50%;
+  width: 100%;
   margin-top: -40px;
   list-style: none;
 }
@@ -353,6 +354,7 @@ section header {
   overflow-y: scroll;
 }
 
+#comments form,
 #comments ul li {
   border-radius: 10px;
   background-color: white;
