@@ -145,7 +145,7 @@
       }
     }
     .card:hover {
-     box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
+     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
      transition-duration: 1s; 
     }
     .header-navs {
@@ -220,6 +220,10 @@ h1 {
   font-size: 32px;
 }
 
+#detail-main > h1 {
+  color: white;
+}
+
 h2 {
   padding: 0 0 15px 0;
   font-size: 28px;
@@ -231,10 +235,15 @@ h3 {
 }
 
 #detail main {   
-  width: 980px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+  overflow: hidden;
   padding: 20px;
   margin: 0 auto;
-  background: #ffffff;
+  /*background: #ffffff;*/
 }
 
 .button {
@@ -329,6 +338,15 @@ section header {
   top: 0;
   right: 0;
   z-index: 1;
+}
+
+#comments {
+  overflow-y: scroll;
+}
+
+#comments ul li {
+  border-radius: 10px;
+  background-color: white;
 }
 
 #comments figure {
