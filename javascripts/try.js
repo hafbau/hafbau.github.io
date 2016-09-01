@@ -16,6 +16,13 @@ $(function() {
       localStorage.setItem("active", id);
 
     });
+    
+    $(".cards-container").on("click", ".card", function(e) {
+      e.preventDefault();
+      
+      $("#slides").html(e.target);
+      $("#detail").show();
+    })
   };
 
   function getStoredActive() {
