@@ -235,8 +235,8 @@ h3 {
 }
 
 #detail main {
-      display: block;
-  background-color: transparent;
+  display: block !important;
+  background-color: white;
   border-radius: 6px;
   min-height: 250px;
   margin-bottom: 20px;
