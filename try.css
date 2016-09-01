@@ -231,6 +231,7 @@ h3 {
 }
 
 #detail main {
+  display: none;    
   width: 980px;
   padding: 20px;
   margin: 0 auto;
