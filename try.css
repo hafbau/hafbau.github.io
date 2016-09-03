@@ -67,7 +67,10 @@
       padding-top: 27.5px;
     }
     .posted-by {
-        font-size: 16px;
+      font-size: 16px;
+    }
+    #detail .posted-by {
+      font-size: 24px;
     }
     .green-text {
       color: #009688;
@@ -76,13 +79,17 @@
       font-size: 10px;
       color: #727272;
     }
+    #detail .posted-by ~ span, #detail .commented-by ~ span {
+      font-size: 13px;
+      color: #727272;
+    }
     .actions {
       padding-top: 0;
     }
     .actions > span, .actions > span i {
       color: #727272;
       margin-right: 1px;
-      font-size: 14px;
+      font-size: inherit;
       vertical-align: text-top;
     }
     .fab-comment {
@@ -92,11 +99,25 @@
       border-radius: 50%;
       background-color: #ff5722;
       box-shadow: 0 0 2px #212121;
+      cursor: pointer;
+    }
+    #detail .fab-comment {
+      left: 50%;
+      height: 50px;
+      width: 50px;
+      margin-left: 230px;
+      box-shadow: 0 30px 60px #888;
+      z-index: 20;
     }
     .fab-comment > i {
       padding: 6px;
       color: white;
       font-size: 22px;
+    }
+    #detail .fab-comment > i {
+      padding: 7px;
+      color: white;
+      font-size: 36px;
     }
     .avatar-post {
       width: 65px;
@@ -205,6 +226,7 @@
 /*import url("whitespace-reset.css");*/
 
 #detail {
+  display: none;
   position: fixed;
   right: 0;
   top: 0;
@@ -250,6 +272,40 @@ h3 {
   transform: translate3d(0,0,0);
 }
 
+#detail > .close {
+  position: absolute;
+  top: 52px;
+  left: 50%;
+  margin-left: 330px;
+  color: #aaa;
+  font-size: 36px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#detail a.prev,
+#detail a.next {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #aaa;
+  font-size: 48px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#detail a.prev {
+  margin-left: -367px;
+}
+
+#detail a.next {
+  margin-left: 327px;
+}
+#detail a.prev:hover, #detail a.next:hover,
+#detail .close:hover {
+  color: white;
+}
+
 .button {
   display: inline-block;
   padding: 10px 15px;
@@ -275,10 +331,9 @@ a.favorite {
 
 #slides {
   position: relative;
-  overflow: hidden;
   width: 100%;
-  height: 450px;
-  max-height: 600px;
+  height: auto;
+  /*max-height: 600px;*/
 }
 
 #slides figure {
@@ -295,11 +350,11 @@ a.favorite {
   display: none;
 }
 
-#slides img {
+/*#slides img {
   display: block;
   width: 100%;
 }
-
+*/
 #slides figcaption {
   position: absolute;
   bottom: 0;
@@ -312,45 +367,13 @@ a.favorite {
   background: rgba(0, 0, 0, .7);
 }
 
-#slideshow ul {
-  position: absolute;
-  top:  50%;
-  width: 100%;
-  margin-top: -40px;
-  list-style: none;
-}
-
-#slideshow a.prev,
-#slideshow a.next {
-  position: absolute;
-  /*top: 50%;*/
-  z-index: 2;
-  width: 48px;
-  height: 80px;
-  color: white;
-  text-indent: -8685px;
-  background: transparent url("../images/icon_pager.png") 0 0 no-repeat;
-}
-
-#slideshow a.prev {
-  left: -90px;
-}
-
-#slideshow a.next {
-  right: -90px;
-  background-position: 100% 0;
-}
-
 section header {
   position: relative;
   padding: 0 0 40px 0;
 }
 
-#detail .actions {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
+#detail .actions, #detail .post-text {
+  font-size: 18px;
 }
 
 #comments form {

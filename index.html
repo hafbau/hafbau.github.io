@@ -8,6 +8,9 @@
   <link rel="stylesheet" type="text/css" href="try.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.3/chance.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+  <script src="javascripts/utilities.js"></script>
   <script src="javascripts/handlebars-v4.0.5.js"></script>
   <script src="javascripts/try.js"></script>
   
@@ -33,7 +36,7 @@
 
     <main id="social">
       <div class="cards-container">
-        <div class="card">
+        <div class="card" data-id = '1'>
           <div class="post-details">
             <img src="http://placehold.it/65" class="avatar-post">
             <div>
@@ -45,7 +48,7 @@
           </div>
           <!-- Post Body -->
           <div class="post-body">
-            <a><img src="http://mdbootstrap.com/images/regular/nature/img%20(48).jpg" class="img-responsive"></a>
+            <a><img src="http://mdbootstrap.com/images/regular/nature/img%20(4).jpg" class="img-responsive"></a>
             
             <div class="post-text">Cras aliquet, nunc at hendrerit facilisis, justo velit laoreet nulla, at cursus arcu ante eget dui. In ex odio, dignissim at auctor molestie, imperdiet nec dolor</div>
 
@@ -57,7 +60,7 @@
           </div>
           <div class="fab-comment"><i class="material-icons">edit</i></div>
         </div>
-        <div class="card">
+        <div class="card" data-id = '2'>
           <div class="post-details">
             <img src="http://placehold.it/65" class="avatar-post">
             <div>
@@ -81,126 +84,7 @@
           </div>
           <div class="fab-comment"><i class="material-icons">edit</i></div>
         </div>
-        <div class="card">
-          <div class="post-details">
-            <img src="http://placehold.it/65" class="avatar-post">
-            <div>
-              <div class="posted-by">Jelilah <span class="green-text">Adebayo</span></div>
-              <span>6hours ago</span><span> &bull; </span>
-              <span>Friends</span><span> &bull; </span>
-              <span>Doha</span>
-            </div>
-          </div>
-          <!-- Post Body -->
-          <div class="post-body">
-            <a><img src="http://mdbootstrap.com/images/regular/nature/img%20(48).jpg" class="img-responsive"></a>
-            
-            <div class="post-text">Cras aliquet, nunc at hendrerit facilisis, justo velit laoreet nulla, at cursus arcu ante eget dui. In ex odio, dignissim at auctor molestie, imperdiet nec dolor</div>
-
-            <div class="actions">
-              <span>21 <i class="material-icons">share</i></span>
-              <span>100 <i class="material-icons">favorite</i></span>
-              <span>3100 <i class="material-icons">comment</i></span>
-            </div>
-          </div>
-          <div class="fab-comment"><i class="material-icons">edit</i></div>
-        </div>
-        <div class="card">
-          <div class="post-details">
-            <img src="http://placehold.it/65" class="avatar-post">
-            <div>
-              <div class="posted-by">Jelilah <span class="green-text">Adebayo</span></div>
-              <span>6hours ago</span><span> &bull; </span>
-              <span>Friends</span><span> &bull; </span>
-              <span>Doha</span>
-            </div>
-          </div>
-          <!-- Post Body -->
-          <div class="post-body">
-            <a><img src="http://mdbootstrap.com/images/regular/nature/img%20(48).jpg" class="img-responsive"></a>
-            
-            <div class="post-text">Cras aliquet, nunc at hendrerit facilisis, justo velit laoreet nulla, at cursus arcu ante eget dui. In ex odio, dignissim at auctor molestie, imperdiet nec dolor</div>
-
-            <div class="actions">
-              <span>21 <i class="material-icons">share</i></span>
-              <span>100 <i class="material-icons">favorite</i></span>
-              <span>3100 <i class="material-icons">comment</i></span>
-            </div>
-          </div>
-          <div class="fab-comment"><i class="material-icons">edit</i></div>
-        </div>
-        <div class="card">
-          <div class="post-details">
-            <img src="lag5.jpg" class="avatar-post img-responsive">
-            <div>
-              <div class="posted-by">Kunle <span class="green-text">Afolayan</span></div>
-              <span>6hours ago</span><span> &bull; </span>
-              <span>Friends</span><span> &bull; </span>
-              <span>Doha</span>
-            </div>
-          </div>
-          <!-- Post Body -->
-          <div class="post-body">
-            <a><img src="http://mdbootstrap.com/images/regular/nature/img%20(48).jpg" class="img-responsive"></a>
-            
-            <!-- <div class="post-text">Cras aliquet, nunc at hendrerit facilisis, justo velit laoreet nulla, at cursus arcu ante eget dui. In ex odio, dignissim at auctor molestie, imperdiet nec dolor</div> -->
-
-            <div class="actions">
-              <span>21 <i class="material-icons">share</i></span>
-              <span>100 <i class="material-icons">favorite</i></span>
-              <span>3100 <i class="material-icons">comment</i></span>
-            </div>
-          </div>
-          <div class="fab-comment"><i class="material-icons">edit</i></div>
-        </div>
-        <div class="card">
-          <div class="post-details">
-            <img src="http://placehold.it/65" class="avatar-post">
-            <div>
-              <div class="posted-by">Jelilah <span class="green-text">Adebayo</span></div>
-              <span>6hours ago</span><span> &bull; </span>
-              <span>Friends</span><span> &bull; </span>
-              <span>Doha</span>
-            </div>
-          </div>
-          <!-- Post Body -->
-          <div class="post-body">
-            <a><img src="http://mdbootstrap.com/images/regular/nature/img%20(48).jpg" class="img-responsive"></a>
-            
-            <div class="post-text">Cras aliquet, nunc at hendrerit facilisis, justo velit laoreet nulla, at cursus arcu ante eget dui. In ex odio, dignissim at auctor molestie, imperdiet nec dolor</div>
-
-            <div class="actions">
-              <span>21 <i class="material-icons">share</i></span>
-              <span>100 <i class="material-icons">favorite</i></span>
-              <span>3100 <i class="material-icons">comment</i></span>
-            </div>
-          </div>
-          <div class="fab-comment"><i class="material-icons">edit</i></div>
-        </div>
-        <div class="card">
-          <div class="post-details">
-            <img src="http://placehold.it/65" class="avatar-post">
-            <div>
-              <div class="posted-by">Jelilah <span class="green-text">Adebayo</span></div>
-              <span>6hours ago</span><span> &bull; </span>
-              <span>Friends</span><span> &bull; </span>
-              <span>Doha</span>
-            </div>
-          </div>
-          <!-- Post Body -->
-          <div class="post-body">
-            <a><img src="http://mdbootstrap.com/images/regular/nature/img%20(48).jpg" class="img-responsive"></a>
-            
-            <div class="post-text">Cras aliquet, nunc at hendrerit facilisis, justo velit laoreet nulla, at cursus arcu ante eget dui. In ex odio, dignissim at auctor molestie, imperdiet nec dolor</div>
-
-            <div class="actions">
-              <span>21 <i class="material-icons">share</i></span>
-              <span>100 <i class="material-icons">favorite</i></span>
-              <span>3100 <i class="material-icons">comment</i></span>
-            </div>
-          </div>
-          <div class="fab-comment"><i class="material-icons">edit</i></div>
-        </div>
+        <div src="lag5.jpg"></div>
       </div>
     </main>
 
@@ -216,14 +100,9 @@
 
   <div id="detail">
     <main id="detail-main">
-      <h1>Amanda Rose's Photos</h1>
       <div id="slideshow">
         <div id="slides">
         </div>
-        <ul>
-          <li><a class="prev" href="#">Prev</a></li>
-          <li><a class="next" href="#">Next</a></li>
-        </ul>
       </div>
 
       <section>
@@ -231,17 +110,11 @@
         </header>
 
         <div id="comments">
-          <!--<h3>Comments</h3>-->
 
           <form action="/comments/new" method="post">
             <fieldset>
               <input type="hidden" name="photo_id" value="1" />
-              <!--<h4>Your Comment</h4>-->
               <dl>
-                <!--<dt><label for="name">Your Name</label></dt>-->
-                <!--<dd><input type="text" name="name" id="name" /></dd>-->
-                <!--<dt><label for="email">Email Address</label></dt>-->
-                <!--<dd><input type="email" name="email" id="email" placeholder="you@example.com" /></dd>-->
                 <dt><label for="body" style="display:none;">Comment</label></dt>
                 <dd><textarea rows="2" cols="40" name="body" id="body" placeholder="yab here..."></textarea></dd>
               </dl>
@@ -249,102 +122,69 @@
             </fieldset>
           </form>
           <ul>
-            <li>
-              <article>
-                <figure>
-                  <img src="lag5.jpg" />
-                </figure>
-                <header>
-                  <h1>Aweni</h1>
-                  <p><small><time>Posted 08 Nov 2016</time></small></p>
-                </header>
-                <p>Some stuff about this ain't soo right after all</p>
-              </article>
-            </li>
-            <li>
-              <article>
-                <figure>
-                  <img src="lag5.jpg" />
-                </figure>
-                <header>
-                  <h1>Aweni</h1>
-                  <p><small><time>Posted 08 Nov 2016</time></small></p>
-                </header>
-                <p>Some stuff about this ain't soo right after all</p>
-              </article>
-            </li>
-            <li>
-              <article>
-                <figure>
-                  <img src="lag5.jpg" />
-                </figure>
-                <header>
-                  <h1>Aweni</h1>
-                  <p><small><time>Posted 08 Nov 2016</time></small></p>
-                </header>
-                <p>Some stuff about this ain't soo right after all</p>
-              </article>
-            </li>
+            <!-- Comments come here -->
           </ul>
         </div>
       </section>
     </main>
+    <i class="close material-icons">clear</i>
+    <a class="prev material-icons">navigate_before</a>
+    <a class="next material-icons">navigate_next</a>
 
-        <script id="photos" type="text/x-handlebars">
-        {{#each photos}}
-        <figure data-id="{{id}}">
-          <img src="{{src}}" />
-          <figcaption>{{caption}}</figcaption>
-        </figure>
-        {{/each}}
-      </script>
-
-      <script id="photo_information" type="text/x-handlebars">
-        <h2>{{title}}</h2>
-        <p><time>Taken on {{created_at}}</time></p>
-        <div class="actions">
-          <a href="/photos/like" data-id="{{id}}" data-property="likes" class="button like">
-            ♡
-            {{#if likes}}
-            {{likes}}
-            {{else}}
-            0
-            {{/if}}
-            Likes
-          </a>
-          <a href="/photos/favorite" data-id="{{id}}" data-property="favorites" class="button favorite">
-            ☆
-            {{#if favorites}}
-            {{favorites}}
-            {{else}}
-            0
-            {{/if}}
-            Favorites
-          </a>
-        </div>
-      </script>
-
-      <script id="comments" type="text/x-handlebars">
-        {{#each comments}}
-        {{> comment}}
-        {{/each}}
-      </script>
-
-      <script id="comment" data-type="partial" type="text/x-handlebars">
-        <li>
-          <article>
-            <figure>
-              <img src="{{gravatar}}" />
-            </figure>
-            <header>
-              <h1>{{name}}</h1>
-              <p><small><time>Posted {{date}}</time></small></p>
-            </header>
-            <p>{{body}}</p>
-          </article>
-        </li>
-      </script>
   </div>
+
+  <script id="post" type="text/x-handlebars">
+    <div class="card" data-id = {{id}}>
+      <div class="post-details">
+        <img src={{avatar}} class="avatar-post">
+        <div>
+          <div class="posted-by">{{fname}} <span class="green-text">{{lname}}</span></div>
+          <span>{{ptime}}</span><span> &bull; </span>
+          <span>{{audience}}</span><span> &bull; </span>
+          <span>{{location}}</span>
+        </div>
+      </div>
+      <!-- Post Body -->
+      <div class="post-body">
+      {{#if media_type}}
+        {{#ifCond media_type "img"}}
+          <a><img src={{media_src}} class="img-responsive"></a>
+        {{else}}
+          <a><video src={{media_src}} class="img-responsive"></video></a>
+        {{/ifCond}}
+      {{/if}}
+        <div class="post-text">{{ptext}}</div>
+
+        <div class="actions">
+          <span>{{share}} <i class="material-icons">share</i></span>
+          <span>{{favourite}} <i class="material-icons">favorite</i></span>
+          <span>{{comment_count}} <i class="material-icons">comment</i></span>
+        </div>
+      </div>
+      <div class="fab-comment"><i class="material-icons">edit</i></div>
+    </div>  
+  </script>
+
+  <script id="comments" type="text/x-handlebars">
+    {{#each comments}}
+    {{> comment}}
+    {{/each}}
+  </script>
+
+  <script id="comment" data-type="partial" type="text/x-handlebars">
+    <li data-id={{id}}>
+      <article>
+        <figure>
+          <img src="{{avatar}}" />
+        </figure>
+        <header>
+          <h1>{{fname}}</h1>
+          <p><small><time>Posted {{ptime}}</time></small></p>
+        </header>
+        <p>{{ptext}}</p>
+      </article>
+    </li>
+  </script>
 
 </body>
 </html>
