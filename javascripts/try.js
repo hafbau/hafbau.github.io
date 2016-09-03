@@ -39,7 +39,10 @@ $(function() {
     
     $(".cards-container").on("click", ".card", function(e) {
       e.preventDefault();
-      $("#slides").html($(e.target).closest(".card")[0].outerHTML);
+      $this_card = $(e.target).closest(".card")
+      $("#slides").html($this_card[0].outerHTML);
+      var this_id = +$this_card.attr("data-id");
+      $("#comments ul").html(templates.comments({comments: all_posts[this_id].comments}));
       $("#detail").show();
       $("body").css("overflow", "hidden");
     });
@@ -60,17 +63,19 @@ $(function() {
         $next_card = $(".cards-container .card").first();
       };
       $("#slides").html($next_card[0].outerHTML);
+      $("#comments ul").html(templates.comments({comments: all_posts[+next_id].comments}));
     });
 
     $(".prev").on("click", function(e) {
       e.preventDefault();
-      var next_id = +$("#slides .card").attr("data-id") - 1 + "";
-      var $next_card = $(".cards-container [data-id=" + next_id + "]");
+      var prev_id = +$("#slides .card").attr("data-id") - 1 + "";
+      var $prev_card = $(".cards-container [data-id=" + prev_id + "]");
 
-      if (!$next_card.length) {
-        $next_card = $(".cards-container .card").last();
+      if (!$prev_card.length) {
+        $prev_card = $(".cards-container .card").last();
       };
-      $("#slides").html($next_card[0].outerHTML);
+      $("#slides").html($prev_card[0].outerHTML);
+      $("#comments ul").html(templates.comments({comments: all_posts[+prev_id].comments}));
     });
 
   };
@@ -91,7 +96,7 @@ $(function() {
     post.audience = _(["Friends", "Public"]).sample();
     post.comments = [];
 
-    post.comments_count = chance.natural({min: 0, max: 15});
+    post.comments_count = chance.natural({min: 50, max: 1500});
     for (var i = post.comments_count; i > post.comments.length; i--) {
       post.comments.push(makeComment(post.comments));
     };
@@ -118,11 +123,16 @@ $(function() {
     return comment;
   }
 
+  var posts_count = chance.natural({min: 205, max: 905});
+    for (var i = posts_count; i > all_posts.length; i--) {
+      all_posts.push(makePost());
+    };
+
+  $(".cards-container").html(templates.posts({posts: all_posts}));
+
   function getStoredActive() {
     return localStorage.getItem("active");
   }
-
-  say(makePost());
 
   bindEvents();
   $("[href=" + getStoredActive() + "]").trigger("click");

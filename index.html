@@ -36,55 +36,7 @@
 
     <main id="social">
       <div class="cards-container">
-        <div class="card" data-id = '1'>
-          <div class="post-details">
-            <img src="http://placehold.it/65" class="avatar-post">
-            <div>
-              <div class="posted-by">Jelilah <span class="green-text">Adebayo</span></div>
-              <span>6hours ago</span><span> &bull; </span>
-              <span>Friends</span><span> &bull; </span>
-              <span>Doha</span>
-            </div>
-          </div>
-          <!-- Post Body -->
-          <div class="post-body">
-            <a><img src="http://mdbootstrap.com/images/regular/nature/img%20(4).jpg" class="img-responsive"></a>
-            
-            <div class="post-text">Cras aliquet, nunc at hendrerit facilisis, justo velit laoreet nulla, at cursus arcu ante eget dui. In ex odio, dignissim at auctor molestie, imperdiet nec dolor</div>
-
-            <div class="actions">
-              <span>21 <i class="material-icons">share</i></span>
-              <span>100 <i class="material-icons">favorite</i></span>
-              <span>3100 <i class="material-icons">comment</i></span>
-            </div>
-          </div>
-          <div class="fab-comment"><i class="material-icons">edit</i></div>
-        </div>
-        <div class="card" data-id = '2'>
-          <div class="post-details">
-            <img src="http://placehold.it/65" class="avatar-post">
-            <div>
-              <div class="posted-by">Jelilah <span class="green-text">Adebayo</span></div>
-              <span>6hours ago</span><span> &bull; </span>
-              <span>Friends</span><span> &bull; </span>
-              <span>Doha</span>
-            </div>
-          </div>
-          <!-- Post Body -->
-          <div class="post-body">
-            <!-- <a><img src="http://mdbootstrap.com/images/regular/nature/img%20(48).jpg" class="img-responsive"></a> -->
-            
-            <div class="post-text">Cras aliquet, nunc at hendrerit facilisis, justo velit laoreet nulla, at cursus arcu ante eget dui. In ex odio, dignissim at auctor molestie, imperdiet nec dolor</div>
-
-            <div class="actions">
-              <span>21 <i class="material-icons">share</i></span>
-              <span>100 <i class="material-icons">favorite</i></span>
-              <span>3100 <i class="material-icons">comment</i></span>
-            </div>
-          </div>
-          <div class="fab-comment"><i class="material-icons">edit</i></div>
-        </div>
-        <div src="lag5.jpg"></div>
+        <!-- Posts in cards go here -->
       </div>
     </main>
 
@@ -111,7 +63,7 @@
 
         <div id="comments">
 
-          <form action="/comments/new" method="post">
+         <!--  <form action="/comments/new" method="post">
             <fieldset>
               <input type="hidden" name="photo_id" value="1" />
               <dl>
@@ -120,7 +72,7 @@
               </dl>
               <input type="submit" value="Post Comment" class="button" />
             </fieldset>
-          </form>
+          </form> -->
           <ul>
             <!-- Comments come here -->
           </ul>
@@ -133,7 +85,13 @@
 
   </div>
 
-  <script id="post" type="text/x-handlebars">
+  <script id="posts" type="text/x-handlebars">
+    {{#each posts}}
+    {{> post}}
+    {{/each}}
+  </script>
+
+  <script id="post" data-type="partial" type="text/x-handlebars">
     <div class="card" data-id = {{id}}>
       <div class="post-details">
         <img src={{avatar}} class="avatar-post">
@@ -158,7 +116,7 @@
         <div class="actions">
           <span>{{share}} <i class="material-icons">share</i></span>
           <span>{{favourite}} <i class="material-icons">favorite</i></span>
-          <span>{{comment_count}} <i class="material-icons">comment</i></span>
+          <span>{{comments.length}} <i class="material-icons">comment</i></span>
         </div>
       </div>
       <div class="fab-comment"><i class="material-icons">edit</i></div>
