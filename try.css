@@ -52,7 +52,7 @@
       display: none;
     }
     .img-responsive {
-      max-width: 100%;
+      width: 100%;
       height: auto;
     }
     .post-text, .actions {
@@ -165,7 +165,7 @@
         column-count: 4;
       }
     }
-    .card:hover, #comments ul li {
+    .card:hover, #comments ul li:hover {
      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
      transition-duration: 1s; 
     }

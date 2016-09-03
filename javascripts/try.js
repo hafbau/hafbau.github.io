@@ -82,11 +82,11 @@ $(function() {
 
   function makePost() {
     var post = makeComment(all_posts),
-        media = { video: _(["https://www.youtube.com/watch?v=ScMzIvxBSi4",
-                        "https://www.youtube.com/watch?v=OCWj5xgu5Ng",
-                        "https://www.youtube.com/watch?v=XQu8TTBmGhA",
-                        "https://www.youtube.com/watch?v=jIHvgUAW5vE",
-                        "https://www.youtube.com/watch?v=Ypgt-m4WY5o"]).sample(),
+        media = { video: _(["https://www.youtube.com/embed/ScMzIvxBSi4",
+                        "https://www.youtube.com/embed/OCWj5xgu5Ng",
+                        "https://www.youtube.com/embed/XQu8TTBmGhA",
+                        "https://www.youtube.com/embed/jIHvgUAW5vE",
+                        "https://www.youtube.com/embed/Ypgt-m4WY5o"]).sample(),
                       img: "http://mdbootstrap.com/images/regular/nature/img%20(" +
                            Math.floor(Math.random()*83) + ").jpg"
                     };
@@ -96,7 +96,7 @@ $(function() {
     post.audience = _(["Friends", "Public"]).sample();
     post.comments = [];
 
-    post.comments_count = chance.natural({min: 50, max: 1500});
+    post.comments_count = chance.natural({min: 5, max: 50});
     for (var i = post.comments_count; i > post.comments.length; i--) {
       post.comments.push(makeComment(post.comments));
     };
@@ -123,7 +123,7 @@ $(function() {
     return comment;
   }
 
-  var posts_count = chance.natural({min: 205, max: 905});
+  var posts_count = chance.natural({min: 15, max: 100});
     for (var i = posts_count; i > all_posts.length; i--) {
       all_posts.push(makePost());
     };

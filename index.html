@@ -108,7 +108,7 @@
         {{#ifCond media_type "img"}}
           <a><img src={{media_src}} class="img-responsive"></a>
         {{else}}
-          <a><video src={{media_src}} class="img-responsive"></video></a>
+          <a><iframe src={{media_src}} class="img-responsive"></iframe></a>
         {{/ifCond}}
       {{/if}}
         <div class="post-text">{{ptext}}</div>
