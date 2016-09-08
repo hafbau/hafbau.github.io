@@ -16,14 +16,14 @@
     }
     #summary {
       min-height: 100%;
-      padding: 100px 0 60px; /*to offset main since header and footer are fixed*/
+      padding: 115px 0 60px; /*to offset main since header and footer are fixed*/
       /*background-color: green;*/
     }
     #summary header {
       position: fixed;
       width: 100%;
-      height: 100px;
-      margin-top: -100px;
+      height: 115px;
+      margin-top: -115px;
       background-color: white;
       box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
       z-index: 30;
@@ -47,7 +47,7 @@
       margin: 0 auto;
       width: 90%;
       min-height: 700px;
-      padding: 10px;
+      padding: 30px 10px 10px;
       background-color: white;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     }
@@ -423,6 +423,7 @@ section header {
 }
 
 #comments figure {
+  display: inline-block;
   float: left;
   margin: 0 20px 0 0;
 }
@@ -440,6 +441,8 @@ section header {
 }
 
 #comments article h1 {
+  display: inline-block;
+  margin: 0;
   padding: 0;
   font-size: 20px;
 }
