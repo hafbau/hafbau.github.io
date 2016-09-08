@@ -5,9 +5,12 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="try.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.3/chance.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
   <script src="javascripts/utilities.js"></script>
@@ -19,7 +22,7 @@
   <div id="summary">
     <header>
      <div class="logo">nido</div>
-     <nav class="header-navs">
+     <div class="header-navs">
        <ul class="main-nav">
          <li class="main-nav-active"><a href="#social">Social</a></li>
          <li><a href="#news">News</a></li>
@@ -31,7 +34,7 @@
          <li>Friends</li>
          <li>Messages</li>
        </ul>
-     </nav>
+     </div>
     </header>
 
     <main id="social">
@@ -62,17 +65,7 @@
         </header>
 
         <div id="comments">
-
-         <!--  <form action="/comments/new" method="post">
-            <fieldset>
-              <input type="hidden" name="photo_id" value="1" />
-              <dl>
-                <dt><label for="body" style="display:none;">Comment</label></dt>
-                <dd><textarea rows="2" cols="40" name="body" id="body" placeholder="yab here..."></textarea></dd>
-              </dl>
-              <input type="submit" value="Post Comment" class="button" />
-            </fieldset>
-          </form> -->
+        <!-- new comment form here -->
           <ul>
             <!-- Comments come here -->
           </ul>
@@ -96,7 +89,7 @@
       <div class="post-details">
         <img src={{avatar}} class="avatar-post">
         <div>
-          <div class="posted-by">{{fname}} <span class="green-text">{{lname}}</span></div>
+          <div class="posted-by">{{fname}} <span class="mygreen-text">{{lname}}</span></div>
           <span>{{ptime}}</span><span> &bull; </span>
           <span>{{audience}}</span><span> &bull; </span>
           <span>{{location}}</span>
@@ -108,7 +101,9 @@
         {{#ifCond media_type "img"}}
           <a><img src={{media_src}} class="img-responsive"></a>
         {{else}}
-          <a><iframe src={{media_src}} class="img-responsive"></iframe></a>
+          <a><div class="video-container">
+            <iframe height="250" src={{media_src}} frameborder="0" allowfullscreen></iframe>
+          </div></a>
         {{/ifCond}}
       {{/if}}
         <div class="post-text">{{ptext}}</div>
@@ -119,7 +114,18 @@
           <span>{{comments.length}} <i class="material-icons">comment</i></span>
         </div>
       </div>
-      <div class="fab-comment"><i class="material-icons">edit</i></div>
+      <div class="for-fab">
+        <form class="new-comment" method="post" action="/comments/new">
+          <div class="input-field">
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">Your Comment</label>
+          </div>
+        </form>
+        <div class="fab-comment">
+          <i class="material-icons">edit</i>
+          <i class="material-icons">send</i>
+        </div>
+      </div>
     </div>  
   </script>
 

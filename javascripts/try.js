@@ -82,11 +82,11 @@ $(function() {
 
   function makePost() {
     var post = makeComment(all_posts),
-        media = { video: _(["https://www.youtube.com/embed/ScMzIvxBSi4",
-                        "https://www.youtube.com/embed/OCWj5xgu5Ng",
-                        "https://www.youtube.com/embed/XQu8TTBmGhA",
-                        "https://www.youtube.com/embed/jIHvgUAW5vE",
-                        "https://www.youtube.com/embed/Ypgt-m4WY5o"]).sample(),
+        media = { video: _(["https://www.youtube.com/embed/ScMzIvxBSi4?rel=0",
+                        "https://www.youtube.com/embed/OCWj5xgu5Ng?rel=0",
+                        "https://www.youtube.com/embed/XQu8TTBmGhA?rel=0",
+                        "https://www.youtube.com/embed/jIHvgUAW5vE?rel=0",
+                        "https://www.youtube.com/embed/Ypgt-m4WY5o?rel=0"]).sample(),
                       img: "http://mdbootstrap.com/images/regular/nature/img%20(" +
                            Math.floor(Math.random()*83) + ").jpg"
                     };

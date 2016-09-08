@@ -11,11 +11,12 @@
     html, body {
       min-height: 100%;
       height: 100%;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
     }
     #summary {
       min-height: 100%;
       padding: 100px 0 60px; /*to offset main since header and footer are fixed*/
-      font-family: 'Roboto', sans-serif;
       /*background-color: green;*/
     }
     #summary header {
@@ -39,8 +40,10 @@
     }
     a {
       text-decoration: none;
+      color: inherit;
     }
     #summary main {
+      display: block;
       margin: 0 auto;
       width: 90%;
       min-height: 700px;
@@ -72,8 +75,9 @@
     #detail .posted-by {
       font-size: 24px;
     }
-    .green-text {
+    .mygreen-text {
       color: #009688;
+      vertical-align: initial;
     }
     .posted-by ~ span, .commented-by ~ span {
       font-size: 10px;
@@ -93,26 +97,54 @@
       vertical-align: text-top;
     }
     .fab-comment {
+      display: inline-block;
       height: 35px;
       width: 35px;
-      margin: 0 12px 20px;
+      /*margin: 0 12px 20px;*/
       border-radius: 50%;
       background-color: #ff5722;
       box-shadow: 0 0 2px #212121;
       cursor: pointer;
+      transition: transform 0.5s ease-in-out;
+    }
+    .for-fab {
+      padding: 20px;
+      width: 100%;
+    }
+    .for-fab:hover .fab-comment {
+      /*transform: rotate(360deg);*/
+      background-color: #009688;
+    }
+    .for-fab:hover .fab-comment > i {
+      display: none;
+    }
+    form.new-comment {
+      animation: slidingForm 1s ease-in-out;
+      animation-fill-mode: forwards;
+    }
+    @keyframes slidingForm {
+      0% { width: 0% }
+      100% {width: 80%}
+    }
+    .for-fab:hover .fab-comment > i + i,
+    .for-fab:hover .new-comment {
+      display: inline-block;
     }
     #detail .fab-comment {
-      left: 50%;
+      /*left: 50%;*/
       height: 50px;
       width: 50px;
-      margin-left: 230px;
+      /*margin-left: 230px;*/
       box-shadow: 0 30px 60px #888;
       z-index: 20;
     }
-    .fab-comment > i {
+    .fab-comment i {
       padding: 6px;
       color: white;
       font-size: 22px;
+    }
+    .fab-comment i + i, form.new-comment {
+      display: none;
     }
     #detail .fab-comment > i {
       padding: 7px;
@@ -421,32 +453,10 @@ section header {
 #comments li + li {
 }
 
-form h4 {
-  padding: 0 0 15px 0;
-  font-size: 18px;
-}
-
-form dt {
-  padding: 0 0 5px 0;
-  font-size: 14px;
-  font-weight: bold;
-}
-form dd {
-  padding: 0 0 15px 0;
-}
-
-input[type="text"],
-input[type="email"] {
-  width: 250px;
-  height: 30px;
-  padding: 5px;
-  font: normal 14px Helvetica, Arial, sans-serif;
-  color: #333;
-  border: 1px solid #cecece;
-  border-radius: 4px;
-}
-
-textarea {
-  border: 1px solid #cecece;
-  border-radius: 4px;
+textarea.materialize-textarea {
+  height: 20px;
+  font-size: inherit;
+  min-height: 20px;
+  margin: 0;
+  padding: 5px 0;
 }
