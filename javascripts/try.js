@@ -45,7 +45,7 @@ $(function() {
         case $(".for-fab")[0]:
         case $(".post-text")[0]:
         case $(".actions")[0]:
-        case $(".post-details")[0]
+        case $(".post-details")[0]:
           $this_card = $(clicked).closest(".card");
           $("#slides").html($this_card[0].outerHTML);
           var this_id = +$this_card.attr("data-id");
