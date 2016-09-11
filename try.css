@@ -412,6 +412,7 @@ section header {
 }
 
 #comments figure {
+  display: inline-block;
   float: left;
   margin: 0 20px 0 0;
 }
@@ -429,6 +430,8 @@ section header {
 }
 
 #comments article h1 {
+  display: inline-block;
+  margin: 0;
   padding: 0;
   font-size: 20px;
 }
