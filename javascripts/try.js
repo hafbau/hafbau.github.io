@@ -36,15 +36,16 @@ $(function() {
       localStorage.setItem("active", id);
 
     });
+
+    $(".cards-container .fab-comment").on("click", fabCommentBind);
     
     $(".cards-container").on("click", ".card", function(e) {
       e.preventDefault();
-      $this_card = $(e.target).closest(".card")
-      $("#slides").html($this_card[0].outerHTML);
-      var this_id = +$this_card.attr("data-id");
-      $("#comments ul").html(templates.comments({comments: all_posts[this_id].comments}));
-      $("#detail").show();
-      $("body").css("overflow", "hidden");
+      var $clicked = $(e.target);
+
+      if (shouldShowDetail($clicked.attr("class"))) {
+        showDetail($clicked);
+      }
     });
 
     $("#detail").on("click", function(e) {
@@ -56,29 +57,71 @@ $(function() {
 
     $(".next").on("click", function(e) {
       e.preventDefault();
-      var next_id = +$("#slides .card").attr("data-id") + 1 + "";
+      var next_id = +$("#slides .card").attr("data-id") + 1;
       var $next_card = $(".cards-container [data-id=" + next_id + "]");
 
       if (!$next_card.length) {
         $next_card = $(".cards-container .card").first();
+        next_id = +$next_card.attr("data-id");
       };
-      $("#slides").html($next_card[0].outerHTML);
-      $("#comments ul").html(templates.comments({comments: all_posts[+next_id].comments}));
+      renderAndBindDetail($next_card, next_id);
     });
 
     $(".prev").on("click", function(e) {
       e.preventDefault();
-      var prev_id = +$("#slides .card").attr("data-id") - 1 + "";
+      var prev_id = +$("#slides .card").attr("data-id") - 1;
       var $prev_card = $(".cards-container [data-id=" + prev_id + "]");
 
       if (!$prev_card.length) {
         $prev_card = $(".cards-container .card").last();
+        prev_id = +$prev_card.attr("data-id");
       };
-      $("#slides").html($prev_card[0].outerHTML);
-      $("#comments ul").html(templates.comments({comments: all_posts[+prev_id].comments}));
+      renderAndBindDetail($prev_card, prev_id);
     });
 
   };
+
+
+  // Helper functions
+
+  function showDetail($clicked) {
+    var $this_card = $clicked.closest(".card");
+    var this_id = +$this_card.attr("data-id");
+    
+    renderAndBindDetail($this_card, this_id);
+    $("#detail").show();
+    $("body").css("overflow", "hidden");
+  }
+
+  function renderAndBindDetail($this_card, this_id) {
+    $("#slides").html($this_card[0].outerHTML);
+    $("#comments ul").html(templates.comments({comments: all_posts[this_id].comments}));
+    // Re-binding the click on fab-comment
+    $("#detail .fab-comment").on("click", fabCommentBind);
+  }
+
+  function fabCommentBind(e) {
+    e.preventDefault();
+    var $parent = $(this).parent();
+
+    $(this).find("i:first-child").css("display", "none");
+    $parent.find(".new-comment, .fab-comment > i + i").css("display", "inline-block");
+    $(this).css("backgroundColor", "#009688");
+    
+    if (!!$parent.find(".new-comment textarea").val()) {
+      $parent.find(".new-comment").on("submit", function(e) {
+        e.preventDefault();
+        say($(this).serialize());
+      }).trigger("submit").get(0).reset();
+    }
+  }
+
+  function shouldShowDetail(clicked_class) {
+    return clicked_class === "post-details" ||
+    clicked_class === "post-text" ||
+    clicked_class === "actions" ||
+    clicked_class === "for-fab";
+  }
 
   function makePost() {
     var post = makeComment(all_posts),
@@ -96,7 +139,7 @@ $(function() {
     post.audience = _(["Friends", "Public"]).sample();
     post.comments = [];
 
-    post.comments_count = chance.natural({min: 5, max: 50});
+    post.comments_count = chance.natural({min: 0, max: 20});
     for (var i = post.comments_count; i > post.comments.length; i--) {
       post.comments.push(makeComment(post.comments));
     };
@@ -123,12 +166,15 @@ $(function() {
     return comment;
   }
 
-  var posts_count = chance.natural({min: 15, max: 100});
-    for (var i = posts_count; i > all_posts.length; i--) {
-      all_posts.push(makePost());
-    };
+  // IIFE for random posts
+  (function() {
+    var posts_count = chance.natural({min: 5, max: 20});
+      for (var i = posts_count; i > all_posts.length; i--) {
+        all_posts.push(makePost());
+      };
 
-  $(".cards-container").html(templates.posts({posts: all_posts}));
+    $(".cards-container").html(templates.posts({posts: all_posts}));
+  }()); // IIFE ends
 
   function getStoredActive() {
     return localStorage.getItem("active");
