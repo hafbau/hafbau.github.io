@@ -452,3 +452,23 @@ textarea.materialize-textarea {
   margin: 0;
   padding: 5px 0 15px;
 }
+.modal {
+  width: 600px;
+}
+.modal-content {
+  padding-bottom: 0px !important;
+}
+#new-post-text{
+  min-height: 60px;
+}
+#new-post-text label {
+  top: -10px;
+}
+#new-post-text label.active {
+  font-size: 16px;
+}
+.post-bits {
+  float: left;
+  padding: 10px 0 10px 15px;
+  color: #343434;
+}
