@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>white</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="try.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.3/chance.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+  <script src="javascripts/utilities.js"></script>
+  <script src="javascripts/handlebars-v4.0.5.js"></script>
+  <script src="javascripts/try.js"></script>
+  
+</head>
+<body>
+  <div id="summary">
+    <header>
+     <div class="logo">nido</div>
+     <div class="header-navs">
+       <ul class="main-nav">
+         <li class="main-nav-active"><a href="#social">Social</a></li>
+         <li><a href="#news">News</a></li>
+         <li><a href="#market">Market</a></li>
+       </ul>
+       <ul class="sec-nav">
+         <li>Profile</li>
+         <li class="sec-nav-active">Wall</li>
+         <li>Friends</li>
+         <li>Messages</li>
+       </ul>
+     </div>
+    </header>
+
+    <main id="social">
+      <div class="cards-container">
+        <!-- Posts in cards go here -->
+      </div>
+    </main>
+
+    <main id="news">
+      <p>Some stuff under news</p>
+    </main>
+    <main id="market">
+      <p>Other stuffs in market</p>
+    </main>
+
+    <div class="fixed-action-btn" style="bottom: 65px; right: 28px;">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">menu</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating yellow darken-1 modal-trigger" href="#new-post"><i class="material-icons">add</i>New Post</a></li>
+        <li><a class="btn-floating red"><i class="material-icons">chat_bubble_outline</i>Chat</a></li>
+        <li><a class="btn-floating green"><i class="material-icons">file_upload</i>Media Upload</a></li>
+        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- New Post Modal Structure -->
+  <div id="new-post" class="modal">
+    <div class="modal-content">
+      <!-- <div class="row"> -->
+        <form class="col s12">
+          <!-- <div class="row"> -->
+            <div class="input-field col s12">
+              <textarea id="new-post-text" class="materialize-textarea" name="new-post-text"></textarea>
+              <label for="new-post-text">wetin dey?</label>
+            </div>
+          <!-- </div> -->
+        </form>
+      <!-- </div> -->
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="post-bits modal-action waves-effect waves-green "><i class="material-icons"><i class="small material-icons">insert_emoticon</i></i></a>
+      <a href="#!" class="post-bits modal-action waves-effect waves-green "><i class="small material-icons">file_upload</i></a>
+        <!-- Switch -->
+      <a href="#!" class="post-bits switch">
+        <label>
+          Public
+          <input type="checkbox" name="post-filter">
+          <span class="lever"></span>
+          Friends
+        </label>
+      </a>
+
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Post</a>
+    </div>
+  </div>
+
+  <footer></footer>
+
+  <div id="detail">
+    <main id="detail-main">
+      <div id="slideshow">
+        <div id="slides">
+        </div>
+      </div>
+
+      <section>
+        <header>
+        </header>
+
+        <div id="comments">
+        <!-- new comment form here -->
+          <ul>
+            <!-- Comments come here -->
+          </ul>
+        </div>
+      </section>
+    </main>
+    <i class="close material-icons">clear</i>
+    <a class="prev material-icons">navigate_before</a>
+    <a class="next material-icons">navigate_next</a>
+
+  </div>
+
+  <script id="posts" type="text/x-handlebars">
+    {{#each posts}}
+    {{> post}}
+    {{/each}}
+  </script>
+
+  <script id="post" data-type="partial" type="text/x-handlebars">
+    <div class="card" data-id = {{id}}>
+      <div class="post-details">
+        <img src={{avatar}} class="avatar-post">
+        <div>
+          <div class="posted-by">{{fname}} <span class="mygreen-text">{{lname}}</span></div>
+          <span>{{ptime}}</span><span> &bull; </span>
+          <span>{{audience}}</span><span> &bull; </span>
+          <span>{{location}}</span>
+        </div>
+      </div>
+      <!-- Post Body -->
+      <div class="post-body">
+      {{#if media_type}}
+        {{#ifCond media_type "img"}}
+          <a><img src={{media_src}} class="img-responsive"></a>
+        {{else}}
+          <a><div class="video-container">
+            <iframe height="250" src={{media_src}} frameborder="0" allowfullscreen></iframe>
+          </div></a>
+        {{/ifCond}}
+      {{/if}}
+        <div class="post-text">{{ptext}}</div>
+
+        <div class="actions">
+          <span>{{share}} <i class="material-icons">share</i></span>
+          <span>{{favourite}} <i class="material-icons">favorite</i></span>
+          <span>{{comments.length}} <i class="material-icons">comment</i></span>
+        </div>
+      </div>
+      <div class="for-fab">
+        <form class="new-comment" method="post" action="/comments/new">
+          <div class="input-field">
+            <textarea id="textarea1" class="materialize-textarea" name="new-comment"></textarea>
+            <label for="textarea1">Your Comment</label>
+          </div>
+        </form>
+        <div class="fab-comment">
+          <i class="material-icons">insert_comment</i>
+          <i class="material-icons">send</i>
+        </div>
+      </div>
+    </div>  
+  </script>
+
+  <script id="comments" type="text/x-handlebars">
+    {{#each comments}}
+    {{> comment}}
+    {{/each}}
+  </script>
+
+  <script id="comment" data-type="partial" type="text/x-handlebars">
+    <li data-id={{id}}>
+      <article>
+        <figure>
+          <img src="{{avatar}}" />
+        </figure>
+        <header>
+          <h1>{{fname}}</h1>
+          <p><small><time>Posted {{ptime}}</time></small></p>
+        </header>
+        <p>{{ptext}}</p>
+      </article>
+    </li>
+  </script>
+
+</body>
+</html>
